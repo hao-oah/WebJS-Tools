@@ -1,13 +1,8 @@
-////////////////////////////
-//			//
-//	Copyright (c) Hao   //
-//	1044504787@qq.com   //
-//			//
-////////////////////////////
+	
 	let iter = 0;
 	
-	let cols = 144;
-	let rows = 74;
+	let cols = 144//288;
+	let rows = 74//148;
 	let grid;
 	
 	let openSet;
@@ -27,8 +22,6 @@
 	var Wall = true;
 	var end_past_x;
 	var end_past_y;
-
-let iter = 0;
 
 	if (Wall ){
 		function mousePressed() {
@@ -337,11 +330,3 @@ let iter = 0;
 		end.show(end_color);
 
 	}
-
-
-//////////////////////////
-//						//
-//	Copyright (c) Hao   //
-//	1044504787@qq.com   //
-//						//
-//////////////////////////
