@@ -6,8 +6,8 @@
 ////////////////////////////
 	let iter = 0;
 	
-	let cols = 144//288;
-	let rows = 74//148;
+	let cols = 144;
+	let rows = 74;
 	let grid;
 	
 	let openSet;
