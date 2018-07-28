@@ -190,10 +190,13 @@
 	
 	// create canvas of viewport size
 	function setup() {
-		document.getElementById("Result_screen").createCanvas(windowWidth, windowHeight);
+		var cnv = createCanvas(windowWidth, windowHeight);
 
 		w = (width / cols);
 		h = (height / rows);
+		var X = (windowWidth - width) / 2;
+		var Y = (windowHeight - height) / 2;
+		cnv.position(X, Y);
 		generateNewBoard();
 	}
 
