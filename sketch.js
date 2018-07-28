@@ -2,7 +2,7 @@
 // 1044504787@qq.com
 
 
-	if (typeof Wall!= "undefined"){
+	if (typeof Wall!= "undefined" && typeof cols!= "undefined" && typeof rows!= "undefined"){
 		function mousePressed() {
 			end_past_x = Math.floor(cols*mouseX/windowWidth);
 			end_past_y = Math.floor(rows*mouseY/windowHeight);
