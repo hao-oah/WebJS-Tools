@@ -192,7 +192,6 @@
 	function setup() {
 		if(document){
 			var cnv = createCanvas(windowWidth, windowHeight);
-			cnv.parent('#Screen_Display');
 			w_w = (width / cols);
 			h_h = (height / rows);
 			generateNewBoard();
