@@ -1,8 +1,6 @@
 // Copyright (c) Hao
 // 1044504787@qq.com
 
-if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "undefined"){
-
 	let iter = 0;
 	
 	let cols = 144;//288;
@@ -38,9 +36,6 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 
 	function generateNewBoard() {
 		// reset global variables
-
-		let cols = 144;//288;
-		let rows = 74;//148;
 
 		grid = [];
 		openSet = [];
@@ -111,10 +106,6 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 	
 	function Spot(i, j) {
 
-		let cols = 144;//288;
-		let rows = 74;//148;
-		let grid_spawn_rate = 0.27;
-		
 		this.i = i;
 		this.j = j;
 		this.f = 0;
@@ -200,8 +191,6 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 	function setup() {
 		if(document){
 			var cnv = createCanvas(windowWidth, windowHeight);
-			let cols = 144;
-			let rows = 74;
 			w_w = (width / (cols?cols:144)); //temp solution
 			h_h = (height /(rows?rows:74)); //
 			generateNewBoard();
@@ -344,4 +333,3 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 		end.show(end_color);
 
 	}
-}
