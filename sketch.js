@@ -190,11 +190,15 @@
 	
 	// create canvas of viewport size
 	function setup() {
-		var cnv = createCanvas(windowWidth, windowHeight);
-		cnv.parent('Screen_Display');
-		w_w = (width / cols);
-		h_h = (height / rows);
-		generateNewBoard();
+		if(document){
+			if (document.getElementById("Screen_Display")){
+				var cnv = createCanvas(windowWidth, windowHeight);
+				cnv.parent('Screen_Display');
+				w_w = (width / cols);
+				h_h = (height / rows);
+				generateNewBoard();
+			}
+		}
 	}
 
 	function windoResized() {
