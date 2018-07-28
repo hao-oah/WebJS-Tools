@@ -190,7 +190,7 @@
 	
 	// create canvas of viewport size
 	function setup() {
-		createCanvas(windowWidth, windowHeight);
+		document.getElementById("Result_screen").createCanvas(windowWidth, windowHeight);
 
 		w = (width / cols);
 		h = (height / rows);
