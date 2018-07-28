@@ -3,8 +3,8 @@
 
 	let iter = 0;
 	
-	let cols = 144;//288;
-	let rows = 74;//148;
+	let cols = 144;
+	let rows = 74;
 	let grid;
 	
 	let openSet;
@@ -191,8 +191,8 @@
 	function setup() {
 		if(document){
 			var cnv = createCanvas(windowWidth, windowHeight);
-			w_w = (width / (cols?cols:144)); //temp solution
-			h_h = (height /(rows?rows:74)); //
+			w_w = width / cols; //temp solution
+			h_h = height /rows; //
 			generateNewBoard();
 		}
 	}
