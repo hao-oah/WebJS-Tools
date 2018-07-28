@@ -1,31 +1,31 @@
 // Copyright (c) Hao
 // 1044504787@qq.com
 
-if (typeof Wall!= "undefined" && typeof cols!= "undefined" && typeof rows!= "undefined"){
+if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "undefined"){
 
-		let iter = 0;
+	let iter = 0;
 	
-		let cols = 144//288;
-		let rows = 74//148;
-		let grid;
+	let cols = 144//288;
+	let rows = 74//148;
+	let grid;
 	
-		let openSet;
-		let closedSet;
-		let start;
-		let end;
-		let w_w, h_h;
-		let path;
+	let openSet;
+	let closedSet;
+	let start;
+	let end;
+	let w_w, h_h;
+	let path;
 	
-		let do_diagonal = false;
-		let grid_spawn_rate = 0.27;
+	let do_diagonal = false;
+	let grid_spawn_rate = 0.27;
 	
-		let found_path = false;
+	let found_path = false;
 
-		var grid_item;
+	var grid_item;
 
-		var Wall = true;
-		var end_past_x;
-		var end_past_y;
+	var Wall = true;
+	var end_past_x;
+	var end_past_y;
 
 	function mousePressed() {
 			end_past_x = Math.floor(cols*mouseX/windowWidth);
