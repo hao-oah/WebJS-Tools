@@ -1,17 +1,8 @@
 // Copyright (c) Hao
 // 1044504787@qq.com
 
-
 if (typeof Wall!= "undefined" && typeof cols!= "undefined" && typeof rows!= "undefined"){
-		function mousePressed() {
-			end_past_x = Math.floor(cols*mouseX/windowWidth);
-			end_past_y = Math.floor(rows*mouseY/windowHeight);
-			end = grid[end_past_x][end_past_y];
-			iter--;
-			redraw(); 
-			}
-	}
-	else{
+
 		let iter = 0;
 	
 		let cols = 144//288;
@@ -35,7 +26,14 @@ if (typeof Wall!= "undefined" && typeof cols!= "undefined" && typeof rows!= "und
 		var Wall = true;
 		var end_past_x;
 		var end_past_y;
-	}
+
+	function mousePressed() {
+			end_past_x = Math.floor(cols*mouseX/windowWidth);
+			end_past_y = Math.floor(rows*mouseY/windowHeight);
+			end = grid[end_past_x][end_past_y];
+			iter--;
+			redraw(); 
+			}
 
 
 	function generateNewBoard() {
@@ -333,3 +331,4 @@ if (typeof Wall!= "undefined" && typeof cols!= "undefined" && typeof rows!= "und
 		end.show(end_color);
 
 	}
+}
