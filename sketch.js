@@ -5,8 +5,8 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 
 	let iter = 0;
 	
-	let cols = 144//288;
-	let rows = 74//148;
+	let cols = 144;//288;
+	let rows = 74;//148;
 	let grid;
 	
 	let openSet;
