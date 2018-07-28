@@ -1,8 +1,10 @@
+// Copyright (c) Hao
+// 1044504787@qq.com
 	
 	let iter = 0;
 	
-	let cols = 144//288;
-	let rows = 74//148;
+	let cols = 144;
+	let rows = 74;
 	let grid;
 	
 	let openSet;
@@ -12,30 +14,11 @@
 	let w, h;
 	let path;
 	
-	let do_diagonal = false;
+	let do_diagonal = true;
 	let grid_spawn_rate = 0.27;
 	
 	let found_path = false;
-
-	var grid_item;
-
-	var Wall = true;
-	var end_past_x;
-	var end_past_y;
-
-	if (Wall ){
-		function mousePressed() {
-			end_past_x = Math.floor(cols*mouseX/windowWidth);
-			end_past_y = Math.floor(rows*mouseY/windowHeight);
-			end = grid[end_past_x][end_past_y];
-			iter--;
-			redraw(); 
-			}
-	}
-	else{
-		;
-	}
-
+	
 
 	function generateNewBoard() {
 		// reset global variables
@@ -63,13 +46,8 @@
 		
 		//// random start+end:
 		start = grid[ Math.round(random(0, (cols - 1))) ][ Math.round(random(0, (rows - 1))) ];
-		end_past_x = Math.round(random(0, (cols - 1)));
-		end_past_y = Math.round(random(0, (rows - 1)));
-		end = grid[ end_past_x ][ end_past_y ];
-
-
-
-		// start_0 = grid[ Math.round(Math.random(0, (cols - 1))) ][ Math.round(Math.random(0, (rows - 1))) ];
+		end = grid[ Math.round(random(0, (cols - 1))) ][ Math.round(random(0, (rows - 1))) ];
+		
 		// corners start+end:
 		//start = grid[0][0];
 		//end = grid[(cols - 1)][(rows - 1)];
@@ -78,11 +56,9 @@
 		
 		// make sure start and end aren't walls
 		start.wall = false;
-		// start_0.wall = false;
 		end.wall = false;
 		
 		openSet.push(start);
-		// openSet.push(start_0);
 		
 		iter++;
 		
@@ -107,6 +83,7 @@
 	}
 	
 	function Spot(i, j) {
+
 		this.i = i;
 		this.j = j;
 		this.f = 0;
@@ -121,6 +98,8 @@
 		}
 		
 		this.show = function(col) {
+
+
 			noStroke();
 			
 			stroke(col);
@@ -162,27 +141,27 @@
 				this.neighbors.push(grid[ i     ][ j - 1 ]);
 			}
 			
-			// if(do_diagonal) {
-			// 	// diag top left
-			// 	if((i > 0) && (j > 0)) {
-			// 		this.neighbors.push(grid[ i - 1 ][ j - 1 ]);
-			// 	}
+			if(do_diagonal) {
+				// diag top left
+				if((i > 0) && (j > 0)) {
+					this.neighbors.push(grid[ i - 1 ][ j - 1 ]);
+				}
 				
-			// 	// diag top right
-			// 	if((i < (cols - 1)) && (j > 0)) {
-			// 		this.neighbors.push(grid[ i + 1 ][ j - 1 ]);
-			// 	}
+				// diag top right
+				if((i < (cols - 1)) && (j > 0)) {
+					this.neighbors.push(grid[ i + 1 ][ j - 1 ]);
+				}
 				
-			// 	// diag bottom left
-			// 	if((i > 0) && (j < (rows - 1))) {
-			// 		this.neighbors.push(grid[ i - 1 ][ j + 1 ]);
-			// 	}
+				// diag bottom left
+				if((i > 0) && (j < (rows - 1))) {
+					this.neighbors.push(grid[ i - 1 ][ j + 1 ]);
+				}
 				
-			// 	// diag bottom right
-			// 	if((i < (cols - 1)) && (j < (cols - 1))) {
-			// 		this.neighbors.push(grid[ i + 1 ][ j + 1 ]);
-			// 	}
-			// }
+				// diag bottom right
+				if((i < (cols - 1)) && (j < (cols - 1))) {
+					this.neighbors.push(grid[ i + 1 ][ j + 1 ]);
+				}
+			}
 		};
 	}
 	
@@ -228,6 +207,7 @@
 			
 			if(current === end) {
 				noLoop();
+				console.log("Iteration #"+ iter +": Found solution!");
 				
 				// start new board
 				window.setTimeout(function() {
@@ -275,6 +255,7 @@
 		} else {
 			// no solution
 			noLoop();
+			console.log("Iteration #"+ iter +": No solution!");
 			
 			// start new board
 			window.setTimeout(function() {
@@ -314,19 +295,20 @@
 		let end_color = color(255, 251, 251);
 		
 		let dist_startEnd = dist(start.i, start.j, end.i, end.j);
-		// let dist_startEnd_0 = dist(start_0.i, start_0.j, end.i, end.j);
-
 		for(let i = 0; i < path.length; i++) {
 			let dist_startPathPoint = dist(start.i, start.j, path[ i ].i, path[ i ].j);
-			// let dist_startPathPoint_0 = dist(start_0.i, start_0.j, path[ i ].i, path[ i ].j);
+
 			path[ i ].show(lerpColor(start_color, end_color, (dist_startPathPoint / dist_startEnd)));
-			// path[ i ].show(lerpColor(start_color, end_color, (dist_startPathPoint_0 / dist_startEnd_0)));
 		}
 		
 		
 		// draw start + end
 		start.show(start_color);
-		// start_0.show(start_color);
 		end.show(end_color);
 
+	}
+	
+	function mousePressed() {
+		end = grid[(Math.floor(cols*mouseX/windowWidth))][(Math.floor(rows*mouseY/windowHeight))];
+		redraw(); 
 	}
