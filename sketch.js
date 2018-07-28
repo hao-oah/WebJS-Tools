@@ -190,7 +190,7 @@
 	
 	// create canvas of viewport size
 	function setup() {
-		var cnv = createCanvas(windowWidth/2, windowHeight/2);
+		var cnv = createCanvas(windowWidth, windowHeight);
 		cnv.parent('container');
 		w_w = (width / cols);
 		h_h = (height / rows);
@@ -198,7 +198,7 @@
 	}
 
 	function windoResized() {
-		resizeCanvas(windowWidth/2, windowHeight/2);
+		resizeCanvas(windowWidth, windowHeight);
 	}
 
 	// create canvas of fixed size.
