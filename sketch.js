@@ -189,8 +189,8 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 	function setup() {
 		if(document){
 			var cnv = createCanvas(windowWidth, windowHeight);
-			w_w = (width / cols);
-			h_h = (height / rows);
+			w_w = (width / (cols?cols:144); //temp solution
+			h_h = (height /(rows?rows:74)); //
 			generateNewBoard();
 		}
 	}
