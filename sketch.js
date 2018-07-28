@@ -25,7 +25,7 @@
 	var end_past_x;
 	var end_past_y;
 
-	if (Wall ){
+	if (typeof Wall!= "undefined"){
 		function mousePressed() {
 			end_past_x = Math.floor(cols*mouseX/windowWidth);
 			end_past_y = Math.floor(rows*mouseY/windowHeight);
