@@ -11,7 +11,7 @@
 	let closedSet;
 	let start;
 	let end;
-	let w, h;
+	let w_w, h_h;
 	let path;
 	
 	let do_diagonal = false;
@@ -192,12 +192,12 @@
 	function setup() {
 		var cnv = createCanvas(windowWidth, windowHeight);
 		cnv.parent('container');
-		w = (width / cols);
-		h = (height / rows);
+		w_w = (width / cols);
+		h_h = (height / rows);
 		generateNewBoard();
 	}
 
-	function windowResized() {
+	function windoResized() {
 		resizeCanvas(windowWidth, windowHeight);
 	}
 
