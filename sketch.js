@@ -113,7 +113,8 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 
 		let cols = 144;//288;
 		let rows = 74;//148;
-
+		let grid_spawn_rate = 0.27;
+		
 		this.i = i;
 		this.j = j;
 		this.f = 0;
