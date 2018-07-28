@@ -198,7 +198,7 @@
 	}
 
 	function windoResized() {
-		resizeCanvas(windowWidth, windowHeight);
+		resizeCanvas(windowWidth/2, windowHeight/2);
 	}
 
 	// create canvas of fixed size.
