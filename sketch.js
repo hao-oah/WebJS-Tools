@@ -191,7 +191,6 @@
 	// create canvas of viewport size
 	function setup() {
 		var cnv = createCanvas(windowWidth, windowHeight);
-		cnv.parent('container');
 		w_w = (width / cols);
 		h_h = (height / rows);
 		generateNewBoard();
@@ -199,6 +198,10 @@
 
 	function windoResized() {
 		resizeCanvas(windowWidth, windowHeight);
+	}
+
+	function findParent() {
+		cnv.parent('Screen_Display'); // depends on the keyword defined in the post page.
 	}
 
 	// create canvas of fixed size.
