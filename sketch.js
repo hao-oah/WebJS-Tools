@@ -189,10 +189,6 @@ if (typeof Wall== "undefined" && typeof cols== "undefined" && typeof rows== "und
 	function setup() {
 		if(document){
 			var cnv = createCanvas(windowWidth, windowHeight);
-			if(typeof cols=="undefined"){
-				let cols = 144//288;
-				let rows = 74//148;
-			}
 			w_w = (width / cols);
 			h_h = (height / rows);
 			generateNewBoard();
