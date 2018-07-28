@@ -196,7 +196,7 @@
 		h = (height / rows);
 		var X = (windowWidth - width) / 2;
 		var Y = (windowHeight - height) / 2;
-		cnv.position(X, Y);
+		cnv.position(0, 0);
 		generateNewBoard();
 	}
 
